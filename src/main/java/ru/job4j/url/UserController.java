@@ -28,6 +28,3 @@ public class UserController {
         return users.findAllPersons();
     }
 }
-
-//todo добавить в github, добавить readme
-//todo продолжить jwt
