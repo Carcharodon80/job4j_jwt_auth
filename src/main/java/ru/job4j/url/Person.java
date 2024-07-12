@@ -3,8 +3,8 @@ package ru.job4j.url;
 import java.util.Objects;
 
 public class Person {
-private String username;
-private String password;
+    private String username;
+    private String password;
 
     public String getUsername() {
         return username;

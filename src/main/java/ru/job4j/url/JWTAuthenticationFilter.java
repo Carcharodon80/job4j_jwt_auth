@@ -33,8 +33,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest req, HttpServletResponse res)
-        throws AuthenticationException {
-        System.out.println("111111111111111111111111111111");
+            throws AuthenticationException {
         try {
             Person creds = new ObjectMapper().readValue(req.getInputStream(), Person.class);
             return auth.authenticate(
@@ -50,10 +49,9 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     }
 
     @Override
-    protected  void successfulAuthentication(HttpServletRequest req, HttpServletResponse res,
-                                             FilterChain chain, Authentication auth)
+    protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res,
+                                            FilterChain chain, Authentication auth)
             throws IOException, ServletException {
-        System.out.println("222222222222222222222222");
         String token = JWT.create()
                 .withSubject(((User) auth.getPrincipal()).getUsername())
                 .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
